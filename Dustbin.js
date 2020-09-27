@@ -1,22 +1,49 @@
-class Dustbin {
-    constructor(x, y) {
-        var options;
-        
-        this.body = Bodies.rectangle(x, y, 200, 20, options);
-        this.width = 200;
-        this.height = 20;
-        
-        World.add(world, this.body);
-      }
-      display() {
-        var pos =this.body.position;
-        var angle = this.body.angle;
-        push();
-        translate(pos.x, pos.y);
-        rectMode(CENTER);
-        fill("white");
-        rect(0, 0, this.width, this.height);
-        pop();
-      }
-    };
-    
+class dustbin
+{
+	constructor(x,y)
+	{
+		
+		
+	 this.x=x;
+	 this.y=y;
+	this.rightWallBody = Bodies.rectangle(260, 610, 20,100 , {isStatic:true} );
+	World.add(world, this.rightWallBody);
+
+
+	this.leftWallBody = Bodies.rectangle(391, 610, 20,100 , {isStatic:true} );
+	World.add(world, this.leftWallBody)
+
+
+
+	this.bottomBody = Bodies.rectangle(250, 640, 500,20 , {isStatic:true} );
+	World.add(world, this.bottomBody);
+
+	}
+	display()
+	{
+			var posBottom=this.bottomBody.position;
+			var posLeft=this.leftWallBody.position;
+			var posRight=this.rightWallBody.position;
+
+			
+
+			push()
+			rectMode(CENTER)
+			//strokeWeight(4);
+			rect(posLeft.x,posLeft.y,20,100);
+			pop()
+
+			push()
+			rectMode(CENTER)
+			//strokeWeight(4);
+			rect(posRight.x,posRight.y,20,100);
+			pop()
+
+			push()
+			//strokeWeight(4);
+			rect(posBottom.x,posBottom.y,150,20);
+			pop()
+			
+	}
+
+}

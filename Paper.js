@@ -5,11 +5,13 @@ class Paper {
         'friction':0.5,
         'density':1.2
     }
-    this.body = Bodies.circle(x, y, 12, options);
+    this.body = Bodies.circle(x, y, 70, options);
     this.radius = 12;
     this.height = 50;
     
     World.add(world, this.body);
+
+    this.paperBall = Bodies.circle(150, 640, 70,options);
   }
   display(){
     var pos =this.body.position;
